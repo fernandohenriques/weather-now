@@ -1,0 +1,10 @@
+{
+  "name": "Weather Now",
+  "short_name": "Weather Now",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Presents the weather by city.",
+  "background_color": "#015C40",
+  "theme_color": "#015C40"
+}

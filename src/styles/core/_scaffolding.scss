@@ -1,0 +1,11 @@
+@import '~reset-css/reset.css';
+
+html {
+  height: 100%;
+  font-size: $rem-baseline;
+}
+
+body {
+  font-family: $--font-family;
+  font-size: 1rem;
+}
