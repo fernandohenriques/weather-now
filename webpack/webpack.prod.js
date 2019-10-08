@@ -1,8 +1,9 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const { outputPath, jsFolder } = require('./paths');
+const { outputPath, jsFolder, cssFolder } = require('./paths');
 
 module.exports = {
   mode: 'production',
@@ -21,6 +22,10 @@ module.exports = {
       verbose: true,
       cleanStaleWebpackAssets: true
     }),
+    new MiniCssExtractPlugin({
+      filename: `${cssFolder}/[name].[chunkhash].css`,
+      chunkFilename: `${cssFolder}/[name].[chunkhash].css`
+    }),
     new CompressionPlugin({ cache: true })
   ],
   devtool: 'source-map',
@@ -38,10 +43,10 @@ module.exports = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          chunks: 'all',
           priority: 1,
+          chunks: 'all',
           name: 'vendor'
-        }
+        },
       }
     }
   }

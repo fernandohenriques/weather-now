@@ -1,3 +1,4 @@
+require('dotenv').config();
 const webpackMerge = require('webpack-merge');
 const common = require('./webpack/webpack.common');
 

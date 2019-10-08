@@ -1,10 +1,9 @@
 const dotenv = require('dotenv');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const rules = require('./rules.common');
-const { entryPath, srcPath, templatePath, cssFolder } = require('./paths');
+const { entryPath, srcPath, templatePath } = require('./paths');
 
 const env = dotenv.config().parsed;
 const envKeys = Object.keys(env).reduce((envObject, key) => {
@@ -18,7 +17,7 @@ module.exports = {
     rules
   },
   resolve: {
-    extensions: ['*', '.js'],
+    extensions: ['*', '.js', '.css'],
     modules: [srcPath, 'node_modules'],
     mainFields: ['browser', 'main', 'module']
   },
@@ -27,10 +26,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: templatePath,
       chunks: ['main', 'vendor']
-    }),
-    new MiniCssExtractPlugin({
-      filename: `${cssFolder}/[name].[hash].css`,
-      chunkFilename: `${cssFolder}/[name].[chunkhash].css`
     }),
     new webpack.DefinePlugin(Object.assign({ 'process.browser': 'true' }, envKeys))
   ],
