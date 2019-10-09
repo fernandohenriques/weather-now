@@ -1,10 +1,14 @@
 import React from 'react';
+import Screen from 'components/templates/screen';
+
 import styles from './index.module.scss';
 
 const NotFound = () => (
-  <div className={styles.container}>
-    <p>Not Found!</p>
-  </div>
+  <Screen>
+    <div className={styles.container}>
+      <h1>Page not found! :(</h1>
+    </div>
+  </Screen>
 );
 
 export default NotFound;

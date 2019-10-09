@@ -14,6 +14,7 @@ const sassLoaders = [
     options: {
       resources: [
         path.resolve(root, 'src/styles/helpers/_var.scss'),
+        path.resolve(root, 'src/styles/helpers/_mixins.scss'),
       ],
     },
   },

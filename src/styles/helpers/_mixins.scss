@@ -1,0 +1,22 @@
+@mixin flex-default() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin v-scroll() {
+  overflow-y: scroll;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin h-scroll() {
+  overflow-x: auto;
+
+  -webkit-overflow-scrolling: touch;
+}
