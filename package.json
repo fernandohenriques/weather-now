@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "build": "webpack --mode=production -p"
+    "build": "webpack --mode=production -p",
+    "test": "jest",
+    "test:coverage": "jest --coverage --colors"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -36,6 +38,7 @@
     "@hot-loader/react-dom": "^16.9.0",
     "autoprefixer": "^9.6.4",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",
@@ -53,6 +56,8 @@
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
