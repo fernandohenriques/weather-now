@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const commonPaths = require('./paths');
+
 const devMode = process.env.NODE_ENV !== 'production';
 
 const { root, fontsFolder, imagesFolder } = commonPaths;
@@ -12,33 +13,33 @@ const sassLoaders = [
     loader: 'sass-resources-loader',
     options: {
       resources: [
-        path.resolve(root, 'src/styles/helpers/_var.scss')
-      ]
-    }
-  }
+        path.resolve(root, 'src/styles/helpers/_var.scss'),
+      ],
+    },
+  },
 ];
 
 const MiniCssExtractPluginLoader = {
   loader: MiniCssExtractPlugin.loader,
   options: {
-    publicPath: '../'
-  }
+    publicPath: '../',
+  },
 };
 
 module.exports = [
-  /*{
+  {
     enforce: 'pre',
     test: /\.(js|jsx)$/,
     loader: 'eslint-loader',
     exclude: /(node_modules)/,
     options: {
-      emitWarning: devMode
-    }
-  },*/
+      emitWarning: devMode,
+    },
+  },
   {
     test: /\.(js|jsx)$/,
     loader: 'babel-loader',
-    exclude: /(node_modules)/
+    exclude: /(node_modules)/,
   },
   {
     test: /\.(sass|scss)$/,
@@ -48,10 +49,10 @@ module.exports = [
       {
         loader: 'css-loader',
         options: {
-          sourceMap: true
-        }
-      }
-    ].concat(sassLoaders)
+          sourceMap: true,
+        },
+      },
+    ].concat(sassLoaders),
   },
   {
     test: /\.module\.(sass|scss)$/,
@@ -64,11 +65,11 @@ module.exports = [
           importLoaders: 4,
           localsConvention: 'camelCase',
           modules: {
-            localIdentName: '[local]--[hash:base64:5]'
-          }
-        }
-      }
-    ].concat(sassLoaders)
+            localIdentName: '[local]--[hash:base64:5]',
+          },
+        },
+      },
+    ].concat(sassLoaders),
   },
   {
     test: /\.(png|jpg|gif|svg)$/,
@@ -76,10 +77,10 @@ module.exports = [
       {
         loader: 'file-loader',
         options: {
-          outputPath: imagesFolder
-        }
-      }
-    ]
+          outputPath: imagesFolder,
+        },
+      },
+    ],
   },
   {
     test: /\.(woff2|ttf|otf|woff|eot)$/,
@@ -87,9 +88,9 @@ module.exports = [
       {
         loader: 'file-loader',
         options: {
-          outputPath: fontsFolder
-        }
-      }
-    ]
+          outputPath: fontsFolder,
+        },
+      },
+    ],
   },
 ];
