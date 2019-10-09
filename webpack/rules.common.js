@@ -6,6 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 const { root, fontsFolder, imagesFolder } = commonPaths;
 
 const sassLoaders = [
+  'postcss-loader',
   'sass-loader',
   {
     loader: 'sass-resources-loader',

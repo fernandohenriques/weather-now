@@ -2,6 +2,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const { outputPath, jsFolder, cssFolder } = require('./paths');
 
@@ -32,7 +33,6 @@ module.exports = {
   devtool: 'source-map',
   optimization: {
     minimize: true,
-
     noEmitOnErrors: true,
     concatenateModules: true,
     minimizer: [
@@ -45,6 +45,18 @@ module.exports = {
           }
         },
         extractComments: false,
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorPluginOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: {
+                removeAll: true
+              }
+            }
+          ],
+        }
       })
     ],
     splitChunks: {
