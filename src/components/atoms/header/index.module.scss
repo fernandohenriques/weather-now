@@ -1,0 +1,11 @@
+.header {
+  padding: 1rem;
+
+  background: $color-white;
+
+  @include flex-default();
+
+  img {
+    height: 1.5rem;
+  }
+}

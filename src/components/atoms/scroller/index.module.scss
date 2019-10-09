@@ -1,0 +1,14 @@
+.container {
+  overflow: hidden;
+  -webkit-box-flex: 1;
+
+  &.vertical {
+    @include v-scroll;
+
+    touch-action: pan-y;
+  }
+
+  &.horizontal {
+    @include h-scroll;
+  }
+}

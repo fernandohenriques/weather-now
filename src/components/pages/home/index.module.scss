@@ -1,3 +1,11 @@
 .container {
-  background-color: #ccc;
+  width: 80%;
+  height: 100%;
+  min-height: rem(750px);
+  margin: 0 auto;
+
+  border-top: rem(1.5px) solid $divider-color;
+  background-color: $background-color;
+
+  @include flex-default();
 }

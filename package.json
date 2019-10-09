@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --mode=production -p",
+    "lint": "eslint . --fix",
     "test": "jest",
     "test:coverage": "jest --coverage --colors"
   },
@@ -25,6 +26,7 @@
     }
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
