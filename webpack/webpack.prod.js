@@ -24,25 +24,33 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: `${cssFolder}/[name].[chunkhash].css`,
-      chunkFilename: `${cssFolder}/[name].[chunkhash].css`
+      chunkFilename: `${cssFolder}/[name].[chunkhash].css`,
+      ignoreOrder: true
     }),
     new CompressionPlugin({ cache: true })
   ],
   devtool: 'source-map',
   optimization: {
     minimize: true,
+
     noEmitOnErrors: true,
     concatenateModules: true,
     minimizer: [
       new TerserPlugin({
         cache: true,
-        parallel: true
+        parallel: true,
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        },
+        extractComments: false,
       })
     ],
     splitChunks: {
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/].*\.js$/,
           priority: 1,
           chunks: 'all',
           name: 'vendor'

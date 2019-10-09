@@ -3,17 +3,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const commonPaths = require('./paths');
 const devMode = process.env.NODE_ENV !== 'production';
 
+const { root, fontsFolder, imagesFolder } = commonPaths;
+
 const sassLoaders = [
   'sass-loader',
   {
     loader: 'sass-resources-loader',
     options: {
       resources: [
-        path.resolve(commonPaths.root, 'src/styles/helpers/_var.scss')
+        path.resolve(root, 'src/styles/helpers/_var.scss')
       ]
     }
   }
 ];
+
+const MiniCssExtractPluginLoader = {
+  loader: MiniCssExtractPlugin.loader,
+  options: {
+    publicPath: '../'
+  }
+};
 
 module.exports = [
   /*{
@@ -34,7 +43,7 @@ module.exports = [
     test: /\.(sass|scss)$/,
     exclude: /\.module\.(sass|scss)$/,
     use: [
-      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      devMode ? 'style-loader' : MiniCssExtractPluginLoader,
       {
         loader: 'css-loader',
         options: {
@@ -46,7 +55,7 @@ module.exports = [
   {
     test: /\.module\.(sass|scss)$/,
     use: [
-      'style-loader',
+      devMode ? 'style-loader' : MiniCssExtractPluginLoader,
       {
         loader: 'css-loader',
         options: {
@@ -64,7 +73,21 @@ module.exports = [
     test: /\.(png|jpg|gif|svg)$/,
     use: [
       {
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          outputPath: imagesFolder
+        }
+      }
+    ]
+  },
+  {
+    test: /\.(woff2|ttf|otf|woff|eot)$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          outputPath: fontsFolder
+        }
       }
     ]
   },
