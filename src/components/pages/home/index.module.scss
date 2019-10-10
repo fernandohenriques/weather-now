@@ -8,4 +8,10 @@
   background-color: $background-color;
 
   @include flex-default();
+
+  @media (max-width: 480px) {
+    & {
+      width: 100%;
+    }
+  }
 }
