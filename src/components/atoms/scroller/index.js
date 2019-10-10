@@ -5,52 +5,50 @@ import classnames from 'classnames';
 import styles from './index.module.scss';
 
 const Scroller = ({
-  ref,
   className,
   vertical,
   horizontal,
   children,
-}) => (
-  <div
-    ref={ref}
-    className={classnames(styles.container, className, {
-      [styles.vertical]: vertical,
-      [styles.horizontal]: horizontal,
-    })}>
-    {children}
-  </div>
-);
-
-const FancyScroller = (props, ref) => {
-  const DOMRef = useRef();
+}, ref) => {
+  const containerRef = useRef();
 
   const scrollTo = (position) => {
-    DOMRef.current.scrollTo({
+    containerRef.current.scrollTo({
       position,
       behavior: 'smooth',
     });
   };
 
   const scrollToTop = () => {
-    DOMRef.current.scrollTo(0, 0);
+    containerRef.current.scrollTo(0, 0);
   };
 
   const scrollToBottom = () => {
-    scrollTo(DOMRef.current.scrollHeight);
+    scrollTo(containerRef.current.scrollHeight);
   };
 
   useImperativeHandle(ref, () => ({
-    ...{ scrollTo, scrollToTop, scrollToBottom },
+    scrollTo,
+    scrollToTop,
+    scrollToBottom,
   }));
 
-  return <Scroller ref={DOMRef} {...props} />;
+  return (
+    <div
+      ref={containerRef}
+      className={classnames(styles.container, className, {
+        [styles.vertical]: vertical,
+        [styles.horizontal]: horizontal,
+      })}>
+      {children}
+    </div>
+  );
 };
 
 Scroller.propTypes = {
   children: PropTypes.node.isRequired,
   vertical: PropTypes.bool,
   horizontal: PropTypes.bool,
-  ref: PropTypes.shape({ current: PropTypes.elementType }),
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
@@ -58,7 +56,6 @@ Scroller.defaultProps = {
   vertical: true,
   horizontal: false,
   className: null,
-  ref: null,
 };
 
-export default forwardRef(FancyScroller);
+export default forwardRef(Scroller);
