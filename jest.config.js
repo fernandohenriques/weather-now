@@ -1,5 +1,11 @@
 module.exports = {
   verbose: true,
+  setupFiles: [
+    '<rootDir>/src/config/tests/enzymeSetup.js',
+  ],
+  snapshotSerializers: [
+    'enzyme-to-json/serializer',
+  ],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff)$': '<rootDir>/src/config/tests/fileTransformer.js',
