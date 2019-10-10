@@ -1,7 +1,7 @@
-.container {
-  width: 80%;
-  height: 100%;
-  min-height: rem(750px);
+.body {
+  width: 75%;
+  height: auto;
+  min-height: rem(650px);
   margin: 0 auto;
 
   border-top: rem(1.5px) solid $divider-color;
@@ -9,9 +9,16 @@
 
   @include flex-default();
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     & {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    & {
+      align-items: flex-start;
+      padding-top: .92rem;
     }
   }
 }

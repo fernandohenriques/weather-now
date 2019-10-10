@@ -8,7 +8,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <img src={logo} title={altText} alt={altText} />
+      <figure>
+        <img src={logo} title={altText} alt={altText} />
+      </figure>
     </header>
   );
 };

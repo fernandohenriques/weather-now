@@ -1,0 +1,9 @@
+.container {
+  @include flex-default();
+
+  @media (max-width: 480px) {
+    & {
+      @include flex-column();
+    }
+  }
+}

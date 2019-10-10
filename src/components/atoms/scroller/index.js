@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -9,41 +9,15 @@ const Scroller = ({
   vertical,
   horizontal,
   children,
-}, ref) => {
-  const containerRef = useRef();
-
-  const scrollTo = (position) => {
-    containerRef.current.scrollTo({
-      position,
-      behavior: 'smooth',
-    });
-  };
-
-  const scrollToTop = () => {
-    containerRef.current.scrollTo(0, 0);
-  };
-
-  const scrollToBottom = () => {
-    scrollTo(containerRef.current.scrollHeight);
-  };
-
-  useImperativeHandle(ref, () => ({
-    scrollTo,
-    scrollToTop,
-    scrollToBottom,
-  }));
-
-  return (
-    <div
-      ref={containerRef}
-      className={classnames(styles.container, className, {
-        [styles.vertical]: vertical,
-        [styles.horizontal]: horizontal,
-      })}>
-      {children}
-    </div>
-  );
-};
+}) => (
+  <div
+    className={classnames(styles.container, className, {
+      [styles.vertical]: vertical,
+      [styles.horizontal]: horizontal,
+    })}>
+    {children}
+  </div>
+);
 
 Scroller.propTypes = {
   children: PropTypes.node.isRequired,
@@ -58,4 +32,4 @@ Scroller.defaultProps = {
   className: null,
 };
 
-export default forwardRef(Scroller);
+export default Scroller;

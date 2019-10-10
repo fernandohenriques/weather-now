@@ -1,0 +1,35 @@
+%colors-shared {
+  @include flex-default();
+
+  &.blue {
+    color: $temperature-blue;
+  }
+
+  &.orange {
+    color: $temperature-orange;
+  }
+
+  &.red {
+    color: $temperature-red;
+  }
+
+  .degree {
+    margin-top: -1.2rem;
+
+    font-size: 3.1rem;
+  }
+}
+
+.container {
+  h2 {
+    font-size: 5rem;
+
+    @extend %colors-shared;
+  }
+
+  h4 {
+    font-size: 2rem;
+
+    @extend %colors-shared;
+  }
+}
