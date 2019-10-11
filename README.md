@@ -39,7 +39,7 @@ $ cd weather-now/
 $ yarn
 $ yarn build
 
-Será criada a pasta build, na raiz do projeto, com um arquivo index.html e todos os assets necessários otimizados para produção. :relaxed:
+Será criada a pasta build, na raiz do projeto, com um arquivo index.html e todos os assets necessários otimizados <br /> para produção. :blush:
 ```
 
 
