@@ -21,9 +21,14 @@ const WeatherCard = ({ title, temperature, humidity, pressure, updatedAt }) => (
 WeatherCard.propTypes = {
   title: PropTypes.string.isRequired,
   temperature: PropTypes.number.isRequired,
-  humidity: PropTypes.number.isRequired,
-  pressure: PropTypes.number.isRequired,
+  humidity: PropTypes.number,
+  pressure: PropTypes.number,
   updatedAt: PropTypes.string.isRequired,
+};
+
+WeatherCard.defaultProps = {
+  humidity: undefined,
+  pressure: undefined,
 };
 
 export default WeatherCard;

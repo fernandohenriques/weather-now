@@ -24,11 +24,11 @@ const ListWeatherCard = ({ cities }) => (
 ListWeatherCard.propTypes = {
   cities: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       temperature: PropTypes.number.isRequired,
-      humidity: PropTypes.number.isRequired,
-      pressure: PropTypes.number.isRequired,
+      humidity: PropTypes.number,
+      pressure: PropTypes.number,
       updatedAt: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,

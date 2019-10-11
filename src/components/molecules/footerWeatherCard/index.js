@@ -22,9 +22,14 @@ const FooterWeatherCard = ({ humidity, pressure, updatedAt }) => (
 );
 
 FooterWeatherCard.propTypes = {
-  humidity: PropTypes.number.isRequired,
-  pressure: PropTypes.number.isRequired,
+  humidity: PropTypes.number,
+  pressure: PropTypes.number,
   updatedAt: PropTypes.string.isRequired,
+};
+
+FooterWeatherCard.defaultProps = {
+  humidity: undefined,
+  pressure: undefined,
 };
 
 export default FooterWeatherCard;
