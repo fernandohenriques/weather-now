@@ -26,6 +26,7 @@ ListWeatherCard.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
+      country: PropTypes.string.isRequired,
       temperature: PropTypes.number.isRequired,
       humidity: PropTypes.number,
       pressure: PropTypes.number,

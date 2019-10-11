@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Snapshot testing 1`] = `
+<header
+  className="header"
+>
+  <figure>
+    <img
+      alt="App logo"
+      src="logo.svg"
+      title="App logo"
+    />
+  </figure>
+</header>
+`;
