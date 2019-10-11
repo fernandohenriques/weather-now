@@ -34,6 +34,7 @@
     "import/no-unresolved": 0,
     "import/no-extraneous-dependencies": 0,
     "import/extensions": 0,
+    "import/no-webpack-loader-syntax": 1,
     "react/prop-types": 2,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-no-target-blank": [1, { "enforceDynamicLinks":"never" }],

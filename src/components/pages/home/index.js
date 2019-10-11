@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addCity } from 'store/ducks/cities';
-import WeatherApi from 'services/openweather';
+import Loading from 'components/atoms/loading';
 import Screen from 'components/templates/screen';
 import ListWeatherCard from 'components/organisms/listWeatherCard';
+
+import { addCity } from 'store/ducks/cities';
+import WeatherApi from 'services/openweather';
 
 import styles from './index.module.scss';
 
@@ -32,7 +34,7 @@ const Home = ({ cities, setCity }) => {
         {(cities.length > 2 && (
           <ListWeatherCard cities={cities} />
         )) || (
-          <strong>Loading!</strong>
+          <Loading fullscreen />
         )}
       </div>
     </Screen>

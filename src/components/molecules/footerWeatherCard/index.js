@@ -25,10 +25,10 @@ const FooterWeatherCard = ({ humidity, pressure, updatedAt }) => (
 FooterWeatherCard.propTypes = {
   humidity: PropTypes.number,
   pressure: PropTypes.number,
-  updatedAt: PropTypes.oneOfType(
+  updatedAt: PropTypes.oneOfType([
     PropTypes.shape({ _d: PropTypes.string.isRequired }).isRequired,
     PropTypes.string.isRequired,
-  ).isRequired,
+  ]).isRequired,
 };
 
 FooterWeatherCard.defaultProps = {

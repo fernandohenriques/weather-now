@@ -75,6 +75,7 @@ module.exports = [
   },
   {
     test: /\.(png|jpg|gif|svg)$/,
+    exclude: /(src\/assets\/icons)/,
     use: [
       {
         loader: 'file-loader',
@@ -93,6 +94,14 @@ module.exports = [
           outputPath: fontsFolder,
         },
       },
+    ],
+  },
+  {
+    test: /\.svg$/,
+    include: /(src\/icons)/,
+    use: [
+      'babel-loader',
+      'svg-react-loader',
     ],
   },
 ];

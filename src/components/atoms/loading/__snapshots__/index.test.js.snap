@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> Snapshot testing 1`] = `
+<div
+  className="loading"
+>
+  <div />
+</div>
+`;
+
+exports[`<Loading /> Snapshot testing with fullscreen mode 1`] = `
+<div
+  className="loading fullscreen"
+>
+  <div />
+</div>
+`;
