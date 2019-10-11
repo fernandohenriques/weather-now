@@ -1,0 +1,24 @@
+.data {
+  width: 100%;
+  margin-bottom: .85rem;
+
+  font-size: rem(12.5px);
+
+  color: $color-text-secondary;
+
+  @include flex-default();
+
+  .humidity, .pressure {
+    width: 50%;
+
+    > div {
+      padding-bottom: .25rem;
+
+      font-size: rem(10.5px);
+
+      color: $color-text-primary;
+
+      text-transform: uppercase;
+    }
+  }
+}

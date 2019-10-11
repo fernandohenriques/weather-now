@@ -17,7 +17,7 @@ const FooterWeatherCard = ({ humidity, pressure, updatedAt }) => (
         </div>
       </div>
     )}
-    Updated at {updatedAt}
+    {`Updated at ${updatedAt}`}
   </>
 );
 

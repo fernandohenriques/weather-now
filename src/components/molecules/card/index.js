@@ -4,16 +4,16 @@ import Divider from 'components/atoms/divider';
 
 import styles from './index.module.scss';
 
-const Card = ({ title, children, footerContent }) => (
+const Card = ({ title, children, footerComponent }) => (
   <div className={styles.card}>
     <div className={styles.header}>
       {title}
     </div>
     <Divider />
     {children}
-    {footerContent && (
+    {footerComponent && (
       <div className={styles.footer}>
-        {footerContent}
+        {footerComponent}
       </div>
     )}
   </div>
@@ -22,11 +22,11 @@ const Card = ({ title, children, footerContent }) => (
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
-  footerContent: PropTypes.element,
+  footerComponent: PropTypes.element,
 };
 
 Card.defaultProps = {
-  footerContent: null,
+  footerComponent: null,
 };
 
 export default Card;
