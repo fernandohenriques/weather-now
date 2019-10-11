@@ -11,6 +11,7 @@ const ListWeatherCard = ({ cities }) => (
       return (
         <WeatherCard
           key={id}
+          updateId={id}
           title={`${name}, ${country}`}
           temperature={temperature}
           humidity={humidity}

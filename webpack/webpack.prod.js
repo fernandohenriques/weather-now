@@ -1,10 +1,11 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const { outputPath, jsFolder, cssFolder } = require('./paths');
+const { outputPath, publicPath, jsFolder, cssFolder } = require('./paths');
 
 module.exports = {
   mode: 'production',
@@ -28,6 +29,13 @@ module.exports = {
       chunkFilename: `${cssFolder}/[name].[chunkhash].css`,
       ignoreOrder: true
     }),
+    new CopyPlugin([
+      {
+        from: publicPath,
+        to: outputPath,
+        ignore: ['*.html'],
+      }
+    ]),
     new CompressionPlugin({ cache: true })
   ],
   devtool: 'source-map',

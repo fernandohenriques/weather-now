@@ -6,5 +6,10 @@
   "start_url": ".",
   "description": "Presents the weather by city.",
   "background_color": "#f1f1f1",
-  "theme_color": "#ed1646"
+  "theme_color": "#ed1646",
+  "icons": [{
+    "src": "favicon.png",
+    "sizes": "32x32",
+    "type": "image/png"
+  }]
 }

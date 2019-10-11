@@ -4,18 +4,20 @@ exports[`<ListWeatherCard /> Snapshot testing 1`] = `
 <section
   className="container"
 >
-  <WeatherCard
+  <Connect(WeatherCard)
     key="1"
     temperature={-5}
     title="Nuuk, GL"
+    updateId={1}
     updatedAt="02:48:32 PM"
   />
-  <WeatherCard
+  <Connect(WeatherCard)
     humidity={75}
     key="2"
     pressure={892}
     temperature={19}
     title="Ubirici, BR"
+    updateId={2}
     updatedAt="02:48:32 PM"
   />
 </section>

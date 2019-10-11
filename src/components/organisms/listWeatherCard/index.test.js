@@ -18,6 +18,6 @@ describe('<ListWeatherCard />', () => {
     const wrapper = shallow(<ListWeatherCard cities={citiesMock} />);
 
     expect(wrapper.exists()).toBeTruthy();
-    expect(wrapper.find('WeatherCard')).toHaveLength(2);
+    expect(wrapper.find('Connect(WeatherCard)')).toHaveLength(2);
   });
 });
