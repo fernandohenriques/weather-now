@@ -23,7 +23,10 @@ WeatherCard.propTypes = {
   temperature: PropTypes.number.isRequired,
   humidity: PropTypes.number,
   pressure: PropTypes.number,
-  updatedAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.oneOfType(
+    PropTypes.shape({ _d: PropTypes.string.isRequired }).isRequired,
+    PropTypes.string.isRequired,
+  ).isRequired,
 };
 
 WeatherCard.defaultProps = {

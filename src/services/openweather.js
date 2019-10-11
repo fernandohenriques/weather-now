@@ -13,8 +13,8 @@ function api() {
 
       try {
         const response = await fetch(url);
-        const { main: { temp, pressure, humidity } } = await response.json();
-        return { temperature: temp, pressure, humidity };
+        const { name, sys: { country }, main: { temp, pressure, humidity } } = await response.json();
+        return { id: cityId, name, country, temperature: temp, pressure, humidity };
       } catch (e) {
         return null;
       }

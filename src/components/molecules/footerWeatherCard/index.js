@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
@@ -17,14 +18,17 @@ const FooterWeatherCard = ({ humidity, pressure, updatedAt }) => (
         </div>
       </div>
     )}
-    {`Updated at ${updatedAt}`}
+    {`Updated at ${moment(updatedAt).format('hh:mm:ss A')}`}
   </>
 );
 
 FooterWeatherCard.propTypes = {
   humidity: PropTypes.number,
   pressure: PropTypes.number,
-  updatedAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.oneOfType(
+    PropTypes.shape({ _d: PropTypes.string.isRequired }).isRequired,
+    PropTypes.string.isRequired,
+  ).isRequired,
 };
 
 FooterWeatherCard.defaultProps = {

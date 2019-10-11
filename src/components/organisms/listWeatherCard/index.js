@@ -7,11 +7,11 @@ import styles from './index.module.scss';
 const ListWeatherCard = ({ cities }) => (
   <section className={styles.container}>
     {cities.map((city) => {
-      const { id, name, temperature, humidity, pressure, updatedAt } = city;
+      const { id, name, country, temperature, humidity, pressure, updatedAt } = city;
       return (
         <WeatherCard
           key={id}
-          title={name}
+          title={`${name}, ${country}`}
           temperature={temperature}
           humidity={humidity}
           pressure={pressure}
@@ -29,8 +29,11 @@ ListWeatherCard.propTypes = {
       temperature: PropTypes.number.isRequired,
       humidity: PropTypes.number,
       pressure: PropTypes.number,
-      updatedAt: PropTypes.string.isRequired,
-    }).isRequired
+      updatedAt: PropTypes.oneOfType(
+        PropTypes.shape({ _d: PropTypes.string.isRequired }).isRequired,
+        PropTypes.string.isRequired,
+      ).isRequired,
+    }).isRequired,
   ).isRequired,
 };
 
