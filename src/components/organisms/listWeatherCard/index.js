@@ -1,32 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TemperatureCard from 'components/organisms/temperatureCard';
+import WeatherCard from 'components/organisms/weatherCard';
 
 import styles from './index.module.scss';
 
-const ListTemperatureCard = ({ cities }) => (
+const ListWeatherCard = ({ cities }) => (
   <section className={styles.container}>
     {cities.map((city) => {
-      const { id, name, temperature, humidity, pressure } = city;
+      const { id, name, temperature, humidity, pressure, updatedAt } = city;
       return (
-        <TemperatureCard
+        <WeatherCard
           key={id}
           title={name}
           temperature={temperature}
           humidity={humidity}
-          pressure={pressure} />
+          pressure={pressure}
+          updatedAt={updatedAt} />
       );
     })}
   </section>
 );
 
-ListTemperatureCard.propTypes = {
+ListWeatherCard.propTypes = {
   cities: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       temperature: PropTypes.number.isRequired,
+      humidity: PropTypes.number.isRequired,
+      pressure: PropTypes.number.isRequired,
+      updatedAt: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };
 
-export default ListTemperatureCard;
+export default ListWeatherCard;

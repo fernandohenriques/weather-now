@@ -1,4 +1,4 @@
-const api = function () {
+function api() {
   const apiKey = process.env.OPEN_WEATHER_API_KEY;
   const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
   const defaultParams = { appid: apiKey };
@@ -13,12 +13,13 @@ const api = function () {
 
       try {
         const response = await fetch(url);
-        return await response.json();
+        const { main: { temp, pressure, humidity } } = await response.json();
+        return { temperature: temp, pressure, humidity };
       } catch (e) {
         return null;
       }
     },
   };
-};
+}
 
 export default api;

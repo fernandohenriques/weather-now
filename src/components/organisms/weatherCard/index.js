@@ -7,7 +7,7 @@ import Temperature from 'components/atoms/temperature';
 
 import styles from './index.module.scss';
 
-const TemperatureCard = ({ title, temperature, humidity, pressure }) => {
+const WeatherCard = ({ title, temperature, humidity, pressure, updatedAt }) => {
   const footer = (
     <>
       {humidity && pressure && (
@@ -22,7 +22,9 @@ const TemperatureCard = ({ title, temperature, humidity, pressure }) => {
           </div>
         </div>
       )}
-      Updated at 02:48:32 PM
+      Updated at
+      {' '}
+      {updatedAt}
     </>
   );
 
@@ -35,11 +37,12 @@ const TemperatureCard = ({ title, temperature, humidity, pressure }) => {
   );
 };
 
-TemperatureCard.propTypes = {
+WeatherCard.propTypes = {
   title: PropTypes.string.isRequired,
   temperature: PropTypes.number.isRequired,
   humidity: PropTypes.number.isRequired,
   pressure: PropTypes.number.isRequired,
+  updatedAt: PropTypes.string.isRequired,
 };
 
-export default TemperatureCard;
+export default WeatherCard;
