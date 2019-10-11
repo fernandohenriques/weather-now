@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Temperature /> Snapshot testing 1`] = `
+<div
+  className="container"
+>
+  <h2
+    className="blue"
+  >
+    5
+    <div
+      className="degree"
+    >
+      °
+    </div>
+  </h2>
+</div>
+`;
+
+exports[`<Temperature /> Snapshot testing with featured mode 1`] = `
+<div
+  className="container"
+>
+  <h2
+    className="orange"
+  >
+    19
+    <div
+      className="degree"
+    >
+      °
+    </div>
+  </h2>
+</div>
+`;
