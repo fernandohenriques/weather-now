@@ -76,6 +76,7 @@ yarn test:coverage
 * [Post CSS](https://postcss.org/)
 * [Yarn](https://yarnpkg.com/)
 * [ESLint](https://eslint.org/)
+* [CSSComb](https://github.com/csscomb/csscomb.js)
 * [Jest](https://jestjs.io/)
 * [Enzyme](https://airbnb.io/enzyme/)
 * [Babel](https://babeljs.io/)
