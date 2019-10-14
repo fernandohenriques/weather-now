@@ -8,7 +8,8 @@
     "build": "jest && webpack --mode=production -p",
     "lint": "eslint . --fix",
     "test": "jest",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "storybook": "start-storybook"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -46,6 +47,7 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@hot-loader/react-dom": "^16.9.0",
+    "@storybook/react": "^5.2.3",
     "autoprefixer": "^9.6.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
