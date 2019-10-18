@@ -9,7 +9,7 @@
     "lint": "eslint . --fix",
     "test": "jest",
     "test:coverage": "jest --coverage --colors",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "lint-staged": {
     "*.{js,jsx}": [
