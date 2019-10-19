@@ -70,6 +70,7 @@ yarn test:coverage
 * [React Router DOM](https://reacttraining.com/react-router/web/guides/philosophy)
 * [Redux](https://redux.js.org/)
 * [Redux Sauce](https://github.com/infinitered/reduxsauce)
+* [Redux Ducks](https://github.com/erikras/ducks-modular-redux)
 * [Atomic Design](https://docs.expo.io/versions/latest/)
 * [Ramda](https://ramdajs.com/)
 * [SASS](https://sass-lang.com/)
